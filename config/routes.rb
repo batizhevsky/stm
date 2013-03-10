@@ -1,4 +1,9 @@
 SimpleTaskManager::Application.routes.draw do
+
+  scope module: "web" do
+    resources :stories, only: [:show, :index, :update, :create, :new]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +53,7 @@ SimpleTaskManager::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'web::stories#index'
 
   # See how all your routes lay out with "rake routes"
 

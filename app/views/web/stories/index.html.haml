@@ -1,0 +1,18 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th Story
+      %th Assigned
+      %th Action
+      %th Comments
+  %tbody
+    - @stories.each do |story|
+      %tr
+        %td
+          =link_to story.body, story_path(story.id)
+        %td
+          =story.user.name if story.user
+        %td
+          none
+        %td
+          =story.comments.count
