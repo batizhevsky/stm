@@ -35,4 +35,12 @@ class Web::StoriesController < Web::ApplicationController
     @story = StoryType.new
     @users = User.all
   end
+
+  def event
+    story_id = params[:id]
+    story_event = params[:event]
+    story = Story.find story_id
+    story.fire_events(story_event) ? flash_success : flash_error
+    redirect_to :back #story_url(story_id)
+  end
 end

@@ -1,0 +1,2 @@
+-story.state_events.each do |ev|
+  =link_to ev, story_event_path(story.id, ev), method: :post, class: "btn #{ev} #{bstrp_btn(ev)}" 

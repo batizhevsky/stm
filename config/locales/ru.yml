@@ -12,3 +12,6 @@ ru:
             error: Не удалось выполнить вход
           destory:
             success: Вы успешно вышли
+        stories:
+          event:
+            success: Статус изменён

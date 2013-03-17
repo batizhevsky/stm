@@ -32,4 +32,10 @@ class Web::StoriesControllerTest < ActionController::TestCase
     get :new
     assert_response :success
   end
+
+  test "update state" do
+    post :event, id: @story.id, event: "start"
+    assert_response :redirect
+    assert_equal @story.state, "started"
+  end
 end

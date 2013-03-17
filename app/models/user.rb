@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   def deactivate
     update_attribute :active, false
   end
+
 end

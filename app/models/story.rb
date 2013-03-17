@@ -25,4 +25,12 @@ class Story < ActiveRecord::Base
       transition rejected: :started
     end
   end
+
+  def user_name
+    user.name if user
+  end
+
+  def self.states
+    Story.state_machine.states.map(&:name)
+  end
 end
