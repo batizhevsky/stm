@@ -1,6 +1,7 @@
 class Web::StoriesController < Web::ApplicationController
   def show
-    @story = Story.find_by_id params[:id]
+    story_id = params[:id]
+    @story = Story.find_by_id story_id
     redirect_to stories_url, error: "Story not found" unless @story
   end
 
@@ -9,8 +10,10 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def update
-    story = StoryType.find(params[:id])
-    if story.update_attributes(params[:story])
+    story_id = params[:id]
+    story_form = params[:story]
+    story = StoryType.find story_id
+    if story.update_attributes story_form
       flash[:notice] = "Story successfull updated"
     else
       flash[:error] = "Can't update story" 
@@ -19,7 +22,8 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def create
-    story = StoryType.new(params[:story])
+    story_form = params[:story]
+    story = StoryType.new(story_form)
     if story.save
       redirect_to story_url(story.id), notice: "Story successfully created"
     else

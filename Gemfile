@@ -2,26 +2,18 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
 gem 'state_machine'
 gem 'minitest-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'virtus'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'therubyracer'
   gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -31,9 +23,12 @@ group :development do
   gem 'spork'
 end
 
+group :test do
+  gem "factory_girl_rails", "~> 4.0"
+end
+
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON

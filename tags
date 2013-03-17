@@ -1,0 +1,144 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+20130309071827_create_users.rb	db/migrate/20130309071827_create_users.rb	1;"	F
+20130309090710_create_stories.rb	db/migrate/20130309090710_create_stories.rb	1;"	F
+20130309131156_create_story_comments.rb	db/migrate/20130309131156_create_story_comments.rb	1;"	F
+20130316101044_add_active_to_user.rb	db/migrate/20130316101044_add_active_to_user.rb	1;"	F
+20130316101535_add_index_to_user.rb	db/migrate/20130316101535_add_index_to_user.rb	1;"	F
+404.html	public/404.html	1;"	F
+422.html	public/422.html	1;"	F
+500.html	public/500.html	1;"	F
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddActiveToUser	db/migrate/20130316101044_add_active_to_user.rb	/^class AddActiveToUser < ActiveRecord::Migration$/;"	c
+AddIndexToUser	db/migrate/20130316101535_add_index_to_user.rb	/^class AddIndexToUser < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:SimpleTaskManager
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+AuthHelper	lib/auth_helper.rb	/^module AuthHelper$/;"	m
+BaseType	app/types/base_type.rb	/^module BaseType$/;"	m
+BrowsingTest	test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
+ClassMethods	app/types/base_type.rb	/^  module ClassMethods$/;"	m	class:BaseType
+CreateStories	db/migrate/20130309090710_create_stories.rb	/^class CreateStories < ActiveRecord::Migration$/;"	c
+CreateStoryComments	db/migrate/20130309131156_create_story_comments.rb	/^class CreateStoryComments < ActiveRecord::Migration$/;"	c
+CreateUsers	db/migrate/20130309071827_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+FlashHelper	lib/flash_helper.rb	/^module FlashHelper$/;"	m
+MiniTest	test/test_helper.rb	/^class MiniTest::Rails::ActiveSupport::TestCase$/;"	c
+SimpleTaskManager	config/application.rb	/^module SimpleTaskManager$/;"	m
+Story	app/models/story.rb	/^class Story < ActiveRecord::Base$/;"	c
+StoryComment	app/models/story_comment.rb	/^class StoryComment < ActiveRecord::Base$/;"	c
+StoryCommentTest	test/models/story_comment_test.rb	/^class StoryCommentTest < ActiveSupport::TestCase$/;"	c
+StoryTest	test/models/story_test.rb	/^class StoryTest < ActiveSupport::TestCase$/;"	c
+StoryType	app/types/story_type.rb	/^class StoryType < Story $/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserSigninType	app/types/user_signin_type.rb	/^class UserSigninType < User$/;"	c
+UserSigninTypeTest	test/types/user_signin_type_test.rb	/^class UserSigninTypeTest < ActiveSupport::TestCase$/;"	c
+UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+UserType	app/types/user_type.rb	/^class UserType < User$/;"	c
+UserTypeTest	test/types/user_type_test.rb	/^class UserTypeTest < ActiveSupport::TestCase$/;"	c
+Web	app/controllers/web/application_controller.rb	/^class Web::ApplicationController < ApplicationController$/;"	c
+Web	app/controllers/web/sessions_controller.rb	/^class Web::SessionsController < Web::ApplicationController$/;"	c
+Web	app/controllers/web/stories_controller.rb	/^class Web::StoriesController < Web::ApplicationController$/;"	c
+Web	app/controllers/web/users_controller.rb	/^class Web::UsersController < Web::ApplicationController$/;"	c
+Web	app/helpers/web/story_helper.rb	/^module Web::StoryHelper$/;"	m
+Web	test/controllers/web/sessions_controller_test.rb	/^class Web::SessionsControllerTest < ActionController::TestCase$/;"	c
+Web	test/controllers/web/stories_controller_test.rb	/^class Web::StoriesControllerTest < ActionController::TestCase$/;"	c
+Web	test/controllers/web/users_controller_test.rb	/^class Web::UsersControllerTest < ActionController::TestCase$/;"	c
+Web	test/helpers/web/story_helper_test.rb	/^class Web::StoryHelperTest < ActionView::TestCase$/;"	c
+application.js	app/assets/javascripts/application.js	1;"	F
+application.rb	config/application.rb	1;"	F
+application_controller.rb	app/controllers/application_controller.rb	1;"	F
+application_controller.rb	app/controllers/web/application_controller.rb	1;"	F
+application_helper.rb	app/helpers/application_helper.rb	1;"	F
+auth_helper.rb	lib/auth_helper.rb	1;"	F
+backtrace_silencers.rb	config/initializers/backtrace_silencers.rb	1;"	F
+base_type.rb	app/types/base_type.rb	1;"	F
+boot.rb	config/boot.rb	1;"	F
+bootstrap.js	app/assets/javascripts/bootstrap.js	1;"	F
+browsing_test.rb	test/performance/browsing_test.rb	1;"	F
+change	db/migrate/20130309071827_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20130309090710_create_stories.rb	/^  def change$/;"	f	class:CreateStories
+change	db/migrate/20130309131156_create_story_comments.rb	/^  def change$/;"	f	class:CreateStoryComments
+change	db/migrate/20130316101044_add_active_to_user.rb	/^  def change$/;"	f	class:AddActiveToUser
+change	db/migrate/20130316101535_add_index_to_user.rb	/^  def change$/;"	f	class:AddIndexToUser
+create	app/controllers/web/sessions_controller.rb	/^  def create$/;"	f	class:Web
+create	app/controllers/web/stories_controller.rb	/^  def create$/;"	f	class:Web
+create	app/controllers/web/users_controller.rb	/^  def create$/;"	f	class:Web
+current_user	lib/auth_helper.rb	/^  def current_user$/;"	f	class:AuthHelper
+delete	app/controllers/web/users_controller.rb	/^  def delete$/;"	f	class:Web
+destroy	app/controllers/web/sessions_controller.rb	/^  def destroy$/;"	f	class:Web
+development.rb	config/environments/development.rb	1;"	F
+environment.rb	config/environment.rb	1;"	F
+factories.rb	test/factories.rb	1;"	F
+flash_error	lib/flash_helper.rb	/^  def flash_error$/;"	f	class:FlashHelper
+flash_helper.rb	lib/flash_helper.rb	1;"	F
+flash_notice	lib/flash_helper.rb	/^  def flash_notice$/;"	f	class:FlashHelper
+flash_success	lib/flash_helper.rb	/^  def flash_success$/;"	f	class:FlashHelper
+flash_translate	lib/flash_helper.rb	/^    def flash_translate(key)$/;"	f	class:FlashHelper
+index	app/controllers/web/stories_controller.rb	/^  def index$/;"	f	class:Web
+inflections.rb	config/initializers/inflections.rb	1;"	F
+mime_types.rb	config/initializers/mime_types.rb	1;"	F
+model_name	app/types/base_type.rb	/^    def model_name$/;"	f	class:BaseType.ClassMethods
+new	app/controllers/web/sessions_controller.rb	/^  def new$/;"	f	class:Web
+new	app/controllers/web/stories_controller.rb	/^  def new$/;"	f	class:Web
+new	app/controllers/web/users_controller.rb	/^  def new$/;"	f	class:Web
+production.rb	config/environments/production.rb	1;"	F
+rails	script/rails	1;"	F
+routes.rb	config/routes.rb	1;"	F
+schema.rb	db/schema.rb	1;"	F
+secret_token.rb	config/initializers/secret_token.rb	1;"	F
+seeds.rb	db/seeds.rb	1;"	F
+session_store.rb	config/initializers/session_store.rb	1;"	F
+sessions_controller.rb	app/controllers/web/sessions_controller.rb	1;"	F
+sessions_controller_test.rb	test/controllers/web/sessions_controller_test.rb	1;"	F
+setup	test/controllers/web/stories_controller_test.rb	/^  def setup$/;"	f	class:Web
+setup	test/models/story_comment_test.rb	/^  def setup$/;"	f	class:StoryCommentTest
+setup	test/models/story_test.rb	/^  def setup$/;"	f	class:StoryTest
+setup	test/models/user_test.rb	/^  def setup$/;"	f	class:UserTest
+show	app/controllers/web/stories_controller.rb	/^  def show$/;"	f	class:Web
+show	app/controllers/web/users_controller.rb	/^  def show$/;"	f	class:Web
+sign_in	lib/auth_helper.rb	/^  def sign_in user$/;"	f	class:AuthHelper
+sign_out	lib/auth_helper.rb	/^  def sign_out$/;"	f	class:AuthHelper
+signed_in?	lib/auth_helper.rb	/^  def signed_in?$/;"	f	class:AuthHelper
+simple_form.rb	config/initializers/simple_form.rb	1;"	F
+simple_form_bootstrap.rb	config/initializers/simple_form_bootstrap.rb	1;"	F
+stories_controller.rb	app/controllers/web/stories_controller.rb	1;"	F
+stories_controller_test.rb	test/controllers/web/stories_controller_test.rb	1;"	F
+story.js	app/assets/javascripts/web/story.js	1;"	F
+story.rb	app/models/story.rb	1;"	F
+story_comment.rb	app/models/story_comment.rb	1;"	F
+story_comment_test.rb	test/models/story_comment_test.rb	1;"	F
+story_helper.rb	app/helpers/web/story_helper.rb	1;"	F
+story_helper_test.rb	test/helpers/web/story_helper_test.rb	1;"	F
+story_test.rb	test/models/story_test.rb	1;"	F
+story_type.rb	app/types/story_type.rb	1;"	F
+test.rb	config/environments/test.rb	1;"	F
+test_can_assigned_to_user	test/models/story_test.rb	/^  def test_can_assigned_to_user$/;"	f	class:StoryTest
+test_comment_should_link_to_user_and_story	test/models/story_comment_test.rb	/^  def test_comment_should_link_to_user_and_story$/;"	f	class:StoryCommentTest
+test_event_accept	test/models/story_test.rb	/^  def test_event_accept$/;"	f	class:StoryTest
+test_event_finish	test/models/story_test.rb	/^  def test_event_finish$/;"	f	class:StoryTest
+test_event_reject	test/models/story_test.rb	/^  def test_event_reject$/;"	f	class:StoryTest
+test_event_started	test/models/story_test.rb	/^  def test_event_started$/;"	f	class:StoryTest
+test_event_startrd_again	test/models/story_test.rb	/^  def test_event_startrd_again$/;"	f	class:StoryTest
+test_helper.rb	test/test_helper.rb	1;"	F
+test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
+test_relationship_with_story	test/models/story_comment_test.rb	/^  def test_relationship_with_story$/;"	f	class:StoryCommentTest
+test_relationship_with_user	test/models/story_comment_test.rb	/^  def test_relationship_with_user$/;"	f	class:StoryCommentTest
+test_sanity	test/helpers/web/story_helper_test.rb	/^  def test_sanity$/;"	f	class:Web
+test_state_initial	test/models/story_test.rb	/^  def test_state_initial$/;"	f	class:StoryTest
+test_user_auth_with_right_pass	test/types/user_type_test.rb	/^  def test_user_auth_with_right_pass$/;"	f	class:UserTypeTest
+test_user_not_auth_with_wrong_pass	test/types/user_type_test.rb	/^  def test_user_not_auth_with_wrong_pass$/;"	f	class:UserTypeTest
+try_sign	app/types/user_signin_type.rb	/^  def try_sign$/;"	f	class:UserSigninType
+update	app/controllers/web/stories_controller.rb	/^  def update$/;"	f	class:Web
+user.rb	app/models/user.rb	1;"	F
+user_signin_type.rb	app/types/user_signin_type.rb	1;"	F
+user_signin_type_test.rb	test/types/user_signin_type_test.rb	1;"	F
+user_test.rb	test/models/user_test.rb	1;"	F
+user_type.rb	app/types/user_type.rb	1;"	F
+user_type_test.rb	test/types/user_type_test.rb	1;"	F
+users_controller.rb	app/controllers/web/users_controller.rb	1;"	F
+users_controller_test.rb	test/controllers/web/users_controller_test.rb	1;"	F
+wrap_parameters.rb	config/initializers/wrap_parameters.rb	1;"	F

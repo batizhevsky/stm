@@ -1,0 +1,14 @@
+ru:
+  flash:
+    controllers:
+      web:
+        users:
+          create:
+            error: Не удалось создать пользователя
+            success: Пользователь успешно создан
+        sessions:
+          create:
+            success: Добро прожаловать
+            error: Не удалось выполнить вход
+          destory:
+            success: Вы успешно вышли

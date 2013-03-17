@@ -14,8 +14,18 @@
             =link_to 'test2', '#'
           %li
             =link_to 'test', '#'
-        .pull-right=link_to "Sign in", '#'
+        .pull-right
+          -if signed_in?
+            =link_to current_user.name, user_path(current_user)
+            =link_to 'Выйти', session_path, method: :delete
+          -else
+            =link_to "Sign in", new_session_path
           
     .container
       = flash_block
       = yield 
+-if Rails.env.development?
+  %pre.prettyprint
+    %ul
+      %li=session.inspect
+      %li=params.inspect
