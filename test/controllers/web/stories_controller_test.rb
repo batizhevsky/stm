@@ -26,7 +26,7 @@ class Web::StoriesControllerTest < ActionController::TestCase
   test "should get show" do
     get :show, id: @test_story.id
     assert_response :success
-    assert_equal @story.id
+    assert assigns(:story)
   end
 
   test "should get new" do

@@ -2,8 +2,7 @@ class UserSigninType < User
   attr_writer :password
   include BaseType
 
-  attr_accessible :name, :password
-  validates :name, presence: true
+  attr_accessible :password
   validates :password, presence: true
 
   def self.try_sign opt 

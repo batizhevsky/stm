@@ -3,6 +3,7 @@ class Web::StoriesController < Web::ApplicationController
     story_id = params[:id]
     @story = Story.find_by_id(story_id)
     redirect_to stories_url, error: "Story not found" unless @story
+    @comments = @story.comments
   end
 
   def index

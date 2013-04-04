@@ -1,16 +1,17 @@
 %h1 подробнее
--if signed_in?
-  =render "form"
-  -# =render "comments"
-  =render "add_comment"
--else
-  %dl.dl-horizontal
-    %dt номер
-    %dd=@story.id
-    %dt story
-    %dd=@story.body
-    %dt назначена
-    %dd=story_assigned
-    %dt статус
-    %dd=@story.state
+%dl.dl-horizontal
+  %dt номер
+  %dd=@story.id
+  %dt story
+  %dd=@story.body
+  %dt назначена
+  %dd=story_assigned
+  %dt статус
+  %dd=render partial: 'story_state', locals: {story: @story}
+%p
+=render "add_comment"
+%p
+%h3 Comments:
+%dl.dl-horizontal
+  =render partial: "comment", collection: @comments
 
