@@ -8,7 +8,6 @@ gem 'minitest-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'simple_form'
-gem 'virtus'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -25,6 +24,7 @@ end
 
 group :test do
   gem "factory_girl_rails", "~> 4.0"
+  gem 'coveralls', require: false
 end
 
 gem 'jquery-rails'

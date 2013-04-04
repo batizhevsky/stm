@@ -1,6 +1,9 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 
+require 'coveralls'
+Coveralls.wear!('rails')
+
 require "minitest/autorun"
 require "minitest/rails"
 
@@ -9,7 +12,7 @@ require "minitest/rails"
 # require "minitest/rails/capybara"
 
 # Uncomment if you want awesome colorful output
- require "minitest/pride"
+require "minitest/pride"
 
 class ActiveSupport::TestCase
   include AuthHelper
