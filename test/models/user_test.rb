@@ -7,12 +7,16 @@ class UserTest < ActiveSupport::TestCase
   end
   # assert_respond_to User, :password_digest  
   test 'cant create ununiq user' do
-    assert !User.create(name: @user.name)
+    refute User.create(name: @user.name)
   end
 
   test 'scope active' do
-    @user.active = false
-    @user.save
-    assert (not User.active.find_by_id(@user.id))
+    @user.delete
+    refute User.active.find_by_id(@user.id)
   end
+
+  test 'user create active' do
+    assert @user.active?
+  end
+
 end

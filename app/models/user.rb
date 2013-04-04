@@ -3,12 +3,14 @@ class User < ActiveRecord::Base
   has_many :stories
   has_many :comments, class_name: "StoryComment"
 
-  scope :active, -> { where active: true }
+  scope :active, -> { where state: :active }
 
   validates :name, uniqueness: true 
-
-  def deactivate
-    update_attribute :active, false
+  
+  state_machine initial: :active do
+    event :delete do
+      transition active: :deleted
+    end
   end
 
 end
