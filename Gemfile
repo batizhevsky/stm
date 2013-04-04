@@ -4,7 +4,6 @@ gem 'rails', '3.2.12'
 
 gem 'pg'
 gem 'state_machine'
-gem 'minitest-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'simple_form'
