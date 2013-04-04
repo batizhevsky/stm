@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :name, uniqueness: true 
   
   state_machine initial: :active do
-    event :deactive do
+    event :deactivate do
       transition active: :deleted
     end
   end

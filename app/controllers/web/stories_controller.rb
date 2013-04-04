@@ -11,22 +11,19 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def update
-    story_id = params[:id]
-    story_form = params[:story]
-    story = StoryType.find story_id
-    if story.update_attributes story_form
+    @story = StoryType.find params[:id]
+    if @story.update_attributes params[:story] 
       flash[:notice] = "Story successfull updated"
     else
       flash[:error] = "Can't update story" 
     end
-    redirect_to story_url(story.id)
+    redirect_to story_url(@story.id)
   end
 
   def create
-    story_form = params[:story]
-    story = StoryType.new(story_form)
-    if story.save
-      redirect_to story_url(story.id), notice: "Story successfully created"
+    @story = StoryType.new(params[:story])
+    if @story.save
+      redirect_to story_url(@story.id), notice: "Story successfully created"
     else
       render :new, error: "Story not created"
     end
@@ -38,10 +35,8 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def event
-    story_id = params[:id]
-    story_event = params[:event]
-    story = Story.find story_id
-    story.fire_events(story_event) ? flash_success : flash_error
-    redirect_to request.referer || story_url(story_id) 
+    @story = Story.find params[:id]
+    @story.fire_events(params[:event]) ? flash_success : flash_error
+    redirect_to request.referer || story_url(@story) 
   end
 end

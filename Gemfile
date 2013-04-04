@@ -19,6 +19,7 @@ group :development do
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-minitest'
   gem 'spork'
+  gem 'tconsole'
 end
 
 group :test do
