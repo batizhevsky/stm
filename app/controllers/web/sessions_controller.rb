@@ -6,13 +6,9 @@ class Web::SessionsController < Web::ApplicationController
 
   def create
     user_form = params[:user]
-    user = UserSigninType.new user_form
-    if user.try_sign
+    user = UserSigninType.try_sign(user_form)
+    if user
       sign_in user
-      puts '+' * 10
-      puts session
-
-      puts signed_in? 
       flash_success
       redirect_to root_path
     else

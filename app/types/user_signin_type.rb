@@ -6,13 +6,18 @@ class UserSigninType < User
   validates :name, presence: true
   validates :password, presence: true
 
-  def try_sign
-    user = find_user
-    user.authenticate @password if user
+  def self.try_sign opt 
+    password = opt[:password]
+    user_instance = self.new(opt)
+    user_instance.authenticate(password)
   end
 
   def id
     find_user ? find_user.id : nil
+  end
+
+  def authenticate password
+    find_user.authenticate(password) if find_user
   end
 
   private

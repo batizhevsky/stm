@@ -10,4 +10,9 @@ FactoryGirl.define do
   factory :user do
     name "simple user"
   end
+
+  factory :story do
+    body 'test body'
+    user
+  end
 end

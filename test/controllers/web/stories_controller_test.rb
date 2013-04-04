@@ -3,7 +3,7 @@ require "test_helper"
 class Web::StoriesControllerTest < ActionController::TestCase
 
   def setup
-    @story = Story.create body: "test"
+    @test_story = Story.create body: "test"
   end
 
   test "should get index" do
@@ -12,8 +12,8 @@ class Web::StoriesControllerTest < ActionController::TestCase
   end
 
   test "should put update" do
-    put :update, id: @story.id, story: { body: "new body" }
-    assert_equal "new body", Story.find(@story.id).body
+    put :update, id: @test_story.id, story: { body: "new body" }
+    assert_equal "new body", Story.find(@test_story.id).body
     assert_response :redirect
   end
 
@@ -24,8 +24,9 @@ class Web::StoriesControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show, id: @story.id
+    get :show, id: @test_story.id
     assert_response :success
+    assert_equal @story.id
   end
 
   test "should get new" do
@@ -34,8 +35,10 @@ class Web::StoriesControllerTest < ActionController::TestCase
   end
 
   test "update state" do
-    post :event, id: @story.id, event: "start"
+    post :event, id: @test_story.id, event: "start"
+    @test_story.reload
     assert_response :redirect
-    assert_equal @story.state, "started"
+    assert_equal @test_story.state, "started"
   end
+
 end

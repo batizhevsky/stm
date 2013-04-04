@@ -6,6 +6,10 @@ SimpleTaskManager::Application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
   end
 
+  scope module: 'api' do
+    resources :comments, only: [:show, :create, :destroy]
+  end
+
   post '/stories/:id/event/:event' => 'web/stories#event', as: 'story_event'
 
   root :to => 'web::stories#index'

@@ -1,7 +1,7 @@
 class Web::StoriesController < Web::ApplicationController
   def show
     story_id = params[:id]
-    @story = Story.find_by_id story_id
+    @story = Story.find_by_id(story_id)
     redirect_to stories_url, error: "Story not found" unless @story
   end
 
@@ -41,6 +41,6 @@ class Web::StoriesController < Web::ApplicationController
     story_event = params[:event]
     story = Story.find story_id
     story.fire_events(story_event) ? flash_success : flash_error
-    redirect_to :back #story_url(story_id)
+    redirect_to request.referer || story_url(story_id) 
   end
 end
