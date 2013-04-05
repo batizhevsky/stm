@@ -12,4 +12,12 @@ module Web::StoryHelper
     when "deliver" then "btn-warning"
     end
   end
+
+  def selected_field param, attr
+    if param
+      param[attr]
+    else
+      param
+    end
+  end
 end
