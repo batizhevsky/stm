@@ -15,4 +15,8 @@ module AuthHelper
     session[:user_id] = user.id
   end
 
+  def auth!
+    redirect_to new_session_url unless signed_in?
+  end
+
 end

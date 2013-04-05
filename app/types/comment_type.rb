@@ -2,6 +2,7 @@ class CommentType < StoryComment
   include BaseType
 
   attr_accessible :story, :comment
-  validate [:story, :comment], presence: true
+  validate :story, presence: true
+  validate :comment, presence: true
 
 end

@@ -15,4 +15,11 @@ FactoryGirl.define do
     body 'test body'
     user
   end
+
+  factory :story_comment do
+    comment "test comment"
+    user
+    story
+  end
+
 end

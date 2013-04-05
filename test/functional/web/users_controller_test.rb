@@ -9,7 +9,6 @@ class Web::UsersControllerTest < ActionController::TestCase
   test 'new user form' do
     get :new
     assert_response :success
-    assert_template :new
   end
 
   test 'create user form' do
@@ -40,10 +39,7 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_difference 'User.active.count', -1 do
       post :destroy, id: @user.id
     end
+    assert_response :redirect
   end
 
-  test 'not signed user cant delete user' do
-    sign_out
-    skip
-  end
 end

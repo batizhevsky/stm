@@ -7,7 +7,14 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def index
-    @stories = Story.all
+    sort_story = params[:story]
+    if sort_story && (sort_story[:user] || sort_story[:state])
+      if sort_story[:user]
+       @stories = Story.all #TODO: filter
+      end
+    else
+      @stories = Story.all
+    end
   end
 
   def update

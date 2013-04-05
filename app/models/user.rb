@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :stories
   has_many :comments, class_name: "StoryComment"
 
-  scope :active, -> { where state: :active }
+  scope :active, -> { with_state :active }
 
   validates :name, uniqueness: true 
   
