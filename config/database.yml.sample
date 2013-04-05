@@ -7,5 +7,19 @@ test:
   adapter: postgresql 
   encoding: unicode
   database: stm_test
+  username: postgres
+  
+production:
+  adapter: postgresql 
+  encoding: unicode
+  database: stm
+  username: postgres
+  pool: 5
+
+development:
+  adapter: postgresql 
+  encoding: unicode
+  database: stm_development
+  username: postgres
   pool: 5
 
