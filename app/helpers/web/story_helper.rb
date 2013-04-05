@@ -1,3 +1,4 @@
+#encoding: utf-8
 module Web::StoryHelper
   def story_assigned
     @story.user_name || "нет"
