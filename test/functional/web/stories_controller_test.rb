@@ -8,6 +8,12 @@ class Web::StoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "get filtred input" do
+    story = create(:story)
+    get :index, story: { user: story.user, state: story.state }
+    assert_response :success
+  end
+
 
   test "should put update" do
     test_story = create(:story)
