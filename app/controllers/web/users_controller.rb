@@ -1,4 +1,6 @@
 class Web::UsersController < Web::ApplicationController
+  before_filter :auth!, only: [:destroy, :update]
+
   def show
     @user = UserType.find(params[:id])
   end
@@ -22,5 +24,11 @@ class Web::UsersController < Web::ApplicationController
     @user = UserType.find(params[:id])
     @user.deactivate
     redirect_to root_url
+  end
+
+  def update
+    @user = UserType.find(params[:id])
+    @user.update_attributes(params[:user])
+    redirect_to user_url(@user.id)
   end
 end

@@ -1,9 +1,18 @@
 require "test_helper"
 
 class Web::StoriesControllerTest < ActionController::TestCase
+  def setup
+    user = create :user_type
+    sign_in user
+  end
 
   test "get index" do
     create(:story)
+    get :index
+    assert_response :success
+  end
+
+  test "get empty index" do
     get :index
     assert_response :success
   end
@@ -13,7 +22,6 @@ class Web::StoriesControllerTest < ActionController::TestCase
     get :index, story: { user: story.user, state: story.state }
     assert_response :success
   end
-
 
   test "should put update" do
     test_story = create(:story)
@@ -25,7 +33,7 @@ class Web::StoriesControllerTest < ActionController::TestCase
   test "should post create" do
     test_story_attr = attributes_for(:story)
     assert_difference('Story.count') do
-      post :create, post: {story: test_story_attr}
+      post :create, story: { body: test_story_attr[:body] }
     end
   end
 
@@ -46,6 +54,14 @@ class Web::StoriesControllerTest < ActionController::TestCase
     test_story.reload
     assert_response :redirect
     assert_equal test_story.state, "started"
+  end
+
+  test "on create if not auth redirect" do
+    sign_out
+    assert_difference 'Story.count', 0 do
+      post :create, post: {story: 'test'}
+    end
+    assert_redirected_to new_session_url
   end
 
 end

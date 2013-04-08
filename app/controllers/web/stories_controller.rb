@@ -1,4 +1,6 @@
 class Web::StoriesController < Web::ApplicationController
+  before_filter :auth!, only: [:create, :update, :event]
+
   def show
     story_id = params[:id]
     @story = Story.find_by_id(story_id)
@@ -24,10 +26,11 @@ class Web::StoriesController < Web::ApplicationController
     @story = StoryType.find params[:id]
     if @story.update_attributes params[:story] 
       flash[:notice] = "Story successfull updated"
+      redirect_to story_url(@story.id)
     else
       flash[:error] = "Can't update story" 
+      render :show
     end
-    redirect_to story_url(@story.id)
   end
 
   def create

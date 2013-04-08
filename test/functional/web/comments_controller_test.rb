@@ -17,10 +17,25 @@ class Web::CommentsControllerTest < ActionController::TestCase
 
   test "destory comment" do
     sign_in @user
-    @comment.save!
     post :destroy, id: @comment.id
     assert_response :redirect
     refute StoryComment.find_by_id @comment
+  end
+
+  test "delete if use not auth requre redirect" do
+    sign_out
+    assert_difference 'StoryComment.count', 0 do
+      delete :destroy, id: @comment.id
+    end
+    assert_redirected_to new_session_url
+  end
+
+  test "create if use not auth requre redirect" do
+    sign_out
+    assert_difference 'StoryComment.count', 0 do
+      delete :create, comment: { story_id: @comment.story.id, comment: @comment.comment }
+    end
+    assert_redirected_to new_session_url
   end
 
 end
