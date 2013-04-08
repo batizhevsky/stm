@@ -7,14 +7,17 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def index
-    sort_story = params[:story]
-    if sort_story && (sort_story[:user] || sort_story[:state])
-      if sort_story[:user]
-       @stories = Story.all #TODO: filter
+    @stories = Story
+
+    if (sort_story = params[:story])
+      if sort_story[:user].present?
+        @stories = @stories.where(user_id: sort_story[:user])
       end
-    else
-      @stories = Story.all
+      if sort_story[:state].present?
+        @stories = @stories.where(state: sort_story[:state])
+      end
     end
+    @stories = @stories.all
   end
 
   def update
