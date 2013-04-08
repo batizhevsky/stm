@@ -14,7 +14,6 @@ class ActiveSupport::TestCase
   fixtures :all
 
   include FactoryGirl::Syntax::Methods
-  include FactoryGirl::Syntax::Methods
   # Add more helper methods to be used by all tests here...
 end
 

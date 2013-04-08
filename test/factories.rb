@@ -1,6 +1,10 @@
 require 'factory_girl'
 
 FactoryGirl.define do
+  sequence :name do |n|
+    "test_user#{n}"
+  end
+
   factory :user_type do
     name "tester"
     password "god"
@@ -8,7 +12,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    name "simple user"
+    name
   end
 
   factory :story do
