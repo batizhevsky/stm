@@ -5,14 +5,14 @@ FactoryGirl.define do
     "test_user#{n}"
   end
 
-  factory :user_type do
-    name "tester"
-    password "god"
-    password_confirmation "god"
-  end
-
   factory :user do
     name
+  end
+
+  factory :user_type do
+    name
+    password "god"
+    password_confirmation { |u| u.password }
   end
 
   factory :story do

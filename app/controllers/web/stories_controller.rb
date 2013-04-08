@@ -9,7 +9,7 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def index
-    @stories = Story
+    @stories = Story.scoped
 
     if (sort_story = params[:story])
       if sort_story[:user].present?
@@ -19,7 +19,6 @@ class Web::StoriesController < Web::ApplicationController
         @stories = @stories.where(state: sort_story[:state])
       end
     end
-    @stories = @stories.all
   end
 
   def update

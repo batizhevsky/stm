@@ -15,7 +15,8 @@ class Web::CommentsController < Web::ApplicationController
 
   def destroy
     comment = StoryComment.find(params[:id])
+    story = comment.story
     comment.destroy
-    redirect_to story_url(comment.story)
+    redirect_to story_url(story.id)
   end
 end

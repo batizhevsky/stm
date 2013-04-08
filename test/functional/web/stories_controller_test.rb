@@ -2,24 +2,21 @@ require "test_helper"
 
 class Web::StoriesControllerTest < ActionController::TestCase
   def setup
-    user = create :user_type
+    user = create :user
     sign_in user
+
+    @story = create :story
   end
 
   test "get index" do
-    create(:story)
     get :index
+
     assert_response :success
   end
 
-  test "get empty index" do
-    get :index
-    assert_response :success
-  end
+  test "get filtered input" do
+    get :index, story: { user: @story.user, state: @story.state }
 
-  test "get filtred input" do
-    story = create(:story)
-    get :index, story: { user: story.user, state: story.state }
     assert_response :success
   end
 

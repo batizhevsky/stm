@@ -22,7 +22,7 @@ class Web::UsersController < Web::ApplicationController
 
   def destroy 
     @user = UserType.find(params[:id])
-    @user.deactivate
+    @user.deactivate!
     redirect_to root_url
   end
 
