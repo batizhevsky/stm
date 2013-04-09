@@ -6,19 +6,24 @@ class Web::CommentsControllerTest < ActionController::TestCase
     sign_in user
 
     @comment_attr = attributes_for :story_comment
-    @story = create :story
-    @comment = create :story_comment
+    @comment = create(:story_comment)
+  end
+
+  test "new comment" do
+    get :new, story_id: @comment.story
+
+    assert_response :success
   end
 
   test "should create comment" do
-    post :create, comment: { story_id: @story, comment: @comment_attr[:comment] }
+    post :create, story_id: @comment.story, story_comment: @comment_attr
 
     assert_response :redirect
   end
 
 
   test "destory comment" do
-    delete :destroy, id: @comment
+    delete :destroy, story_id: @comment.story, id: @comment
 
     assert_response :redirect
     assert !StoryComment.exists?(@comment)
@@ -27,7 +32,7 @@ class Web::CommentsControllerTest < ActionController::TestCase
   test "delete if use not auth requre redirect" do
     sign_out
 
-    delete :destroy, id: @comment
+    delete :destroy, story_id: @comment.story, id: @comment
 
     assert_redirected_to new_session_url
   end
@@ -35,7 +40,7 @@ class Web::CommentsControllerTest < ActionController::TestCase
   test "create if use not auth requre redirect" do
     sign_out
 
-    post :create, comment: { story_id: @story, comment: @comment_attr[:comment] }
+    post :create, story_id: @comment.story, story_comment: @comment_attr
 
     assert_redirected_to new_session_url
   end

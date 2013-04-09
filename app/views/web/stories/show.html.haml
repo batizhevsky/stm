@@ -8,10 +8,11 @@
   %dd=story_assigned
   %dt статус
   %dd=render partial: 'story_state', locals: {story: @story}
+=link_to "edit story", edit_story_path
 %p
-=render "add_comment"
+=link_to "add comment", new_story_comment_path(story_id: @story)
 %p
 %h3 Comments:
 %dl.dl-horizontal
-  =render partial: "comment", collection: @comments
+  =render partial: "web/comments/comment", collection: @comments
 

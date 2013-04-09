@@ -1,22 +1,27 @@
 class Web::CommentsController < Web::ApplicationController
   before_filter :auth!
 
+  def new
+    story = Story.find(params[:story_id])
+    @comment = story.comments.new
+  end
+
   def create
-    comment_body = params[:comment][:comment]
-    @story = Story.find(params[:comment][:story_id])
-    @comment = CommentType.new(story: @story, comment: comment_body, user: current_user)
+    story = Story.find(params[:story_id])
+    @comment = story.comments.new(comment: params[:story_comment][:comment], user: current_user)
     if @comment.save
       flash_success
+      redirect_to story_url(story)
     else
       flash_error
+      render :new
     end
-    redirect_to request.referer || story_url(@story)
   end
 
   def destroy
-    comment = StoryComment.find(params[:id])
-    story = comment.story
+    story = Story.find(params[:story_id])
+    comment = story.comments.find(params[:id])
     comment.destroy
-    redirect_to story_url(story.id)
+    redirect_to story_url(story)
   end
 end

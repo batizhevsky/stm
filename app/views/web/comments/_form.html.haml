@@ -1,4 +1,4 @@
-=simple_form_for :comment, url: comments_path do |f|
+=simple_form_for @comment, url: story_comments_path(story_id: @comment.story) do |f|
  =f.input :comment
  =f.input :story_id, as: :hidden, input_html: { value: params[:id] }
  =f.submit

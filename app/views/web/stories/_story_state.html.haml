@@ -1,2 +1,5 @@
--story.state_events.each do |ev|
-  =link_to ev, story_event_path(story.id, ev), method: :post, class: "btn #{ev} #{bstrp_btn(ev)}" 
+-if signed_in? and story.state_events.any?
+  -story.state_events.each do |ev|
+    =link_to ev, story_event_path(story.id, ev), method: :post, class: "btn #{ev} #{bstrp_btn(ev)}"
+-else
+  =story.human_state_name

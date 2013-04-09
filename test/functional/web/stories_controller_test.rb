@@ -20,6 +20,12 @@ class Web::StoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get edit" do
+    get :edit, id: @story
+
+    assert_response :success
+  end
+
   test "should get new" do
     get :new
 
