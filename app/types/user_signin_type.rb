@@ -5,7 +5,7 @@ class UserSigninType < User
   attr_accessible :password
   validates :password, presence: true
 
-  def self.try_sign opt 
+  def self.try_sign opt
     password = opt[:password]
     user_instance = self.new(opt)
     user_instance.authenticate(password)
@@ -26,4 +26,3 @@ class UserSigninType < User
   end
 
 end
-   

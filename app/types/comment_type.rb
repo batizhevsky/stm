@@ -1,4 +1,4 @@
-class CommentType < StoryComment 
+class CommentType < StoryComment
   include BaseType
 
   attr_accessible :story, :comment

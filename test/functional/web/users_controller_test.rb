@@ -11,6 +11,7 @@ class Web::UsersControllerTest < ActionController::TestCase
 
   test 'new user' do
     get :new
+
     assert_response :success
   end
 
@@ -21,7 +22,6 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test 'update user' do
-
     put :update, id: @user, user: {name: @user_attr[:name]}
 
     assert User.exists?(name: @user_attr[:name])
@@ -47,6 +47,15 @@ class Web::UsersControllerTest < ActionController::TestCase
     put :update, id: @user.id, user: {name: @user_attr[:name]}
 
     assert !User.active.exists?(name: @user_attr[:name])
+    assert_redirected_to new_session_url
+  end
+
+  test "on delete user if not auth redirect" do
+    sign_out
+
+    post :destroy, id: @user
+
+    assert User.active.exists?(@user)
     assert_redirected_to new_session_url
   end
 

@@ -1,5 +1,5 @@
 class Web::StoriesController < Web::ApplicationController
-  before_filter :auth!, only: [:create, :update, :event]
+  before_filter :auth!, except: [:show, :index]
 
   def show
     story_id = params[:id]
@@ -23,11 +23,11 @@ class Web::StoriesController < Web::ApplicationController
 
   def update
     @story = StoryType.find params[:id]
-    if @story.update_attributes params[:story] 
+    if @story.update_attributes params[:story]
       flash[:notice] = "Story successfull updated"
       redirect_to story_url(@story.id)
     else
-      flash[:error] = "Can't update story" 
+      flash[:error] = "Can't update story"
       render :show
     end
   end
@@ -49,6 +49,6 @@ class Web::StoriesController < Web::ApplicationController
   def event
     @story = Story.find params[:id]
     @story.fire_events(params[:event]) ? flash_success : flash_error
-    redirect_to request.referer || story_url(@story) 
+    redirect_to request.referer || story_url(@story)
   end
 end

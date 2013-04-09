@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
 
   scope :active, -> { with_state :active }
 
-  validates :name, uniqueness: true 
-  
+  validates :name, uniqueness: true
+
   state_machine initial: :active do
     event :deactivate do
       transition active: :deleted

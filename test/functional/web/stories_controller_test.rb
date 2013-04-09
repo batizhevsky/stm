@@ -14,50 +14,57 @@ class Web::StoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get show" do
+    get :show, id: @story
+
+    assert_response :success
+  end
+
+  test "should get new" do
+    get :new
+
+    assert_response :success
+  end
+
   test "get filtered input" do
     get :index, story: { user: @story.user, state: @story.state }
 
     assert_response :success
   end
 
-  test "should put update" do
-    test_story = create(:story)
-    put :update, id: test_story.id, story: { body: "new body" }
-    assert_equal "new body", Story.find(test_story.id).body
+  test "should post create" do
+    story_attr = attributes_for :story
+
+    post :create, story: story_attr
+
+    assert Story.exists?(body: story_attr[:body])
     assert_response :redirect
   end
 
-  test "should post create" do
-    test_story_attr = attributes_for(:story)
-    assert_difference('Story.count') do
-      post :create, story: { body: test_story_attr[:body] }
-    end
+  test "should put update" do
+    story_attr = attributes_for :story
+
+    put :update, id: @story, story: story_attr
+
+    assert Story.exists?(body: story_attr[:body])
+    assert_response :redirect
   end
 
-  test "should get show" do
-    test_story = create(:story)
-    get :show, id: test_story.id
-    assert_response :success
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
 
   test "update state" do
-    test_story = create(:story)
-    post :event, id: test_story.id, event: "start"
-    test_story.reload
+    next_event = @story.state_paths.events.first
+    post :event, id: @story, event: next_event
+
     assert_response :redirect
-    assert_equal test_story.state, "started"
   end
 
   test "on create if not auth redirect" do
     sign_out
-    assert_difference 'Story.count', 0 do
-      post :create, post: {story: 'test'}
-    end
+    story_attr = attributes_for :story
+
+    post :create, post: story_attr
+
+    assert !Story.exists?(body: story_attr[:body])
     assert_redirected_to new_session_url
   end
 
