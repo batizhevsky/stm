@@ -6,6 +6,7 @@ class Web::SessionsController < Web::ApplicationController
 
   def create   
     @user = UserSigninType.try_sign(params[:user])
+
     if @user
       sign_in @user
       flash_success
@@ -18,6 +19,7 @@ class Web::SessionsController < Web::ApplicationController
 
   def destroy
     sign_out
+
     flash_success
     redirect_to root_url
   end

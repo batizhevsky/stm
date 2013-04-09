@@ -1,5 +1,5 @@
 class Web::StoriesController < Web::ApplicationController
-  before_filter :auth!, only: [:create, :update, :event]
+  before_filter :auth!, except: [:show, :index]
 
   def show
     story_id = params[:id]

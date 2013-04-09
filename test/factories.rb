@@ -16,12 +16,12 @@ FactoryGirl.define do
   end
 
   factory :story do
-    body 'test body'
+    sequence(:body) { |n| "test body #{n}" }
     user
   end
 
   factory :story_comment do
-    comment "test comment"
+    sequence(:comment) { |n| "test comment #{n}" }
     user
     story
   end
