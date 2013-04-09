@@ -32,12 +32,6 @@ class Web::StoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "get filtered input" do
-    get :index, story: { user: @story.user, state: @story.state }
-
-    assert_response :success
-  end
-
   test "should post create" do
     story_attr = attributes_for :story
 

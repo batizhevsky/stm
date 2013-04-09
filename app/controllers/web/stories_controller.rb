@@ -11,16 +11,8 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def index
-    @stories = Story.scoped
-
-    if (sort_story = params[:story])
-      if sort_story[:user].present?
-        @stories = @stories.where(user_id: sort_story[:user])
-      end
-      if sort_story[:state].present?
-        @stories = @stories.where(state: sort_story[:state])
-      end
-    end
+    @filter = Story.ransack(params[:q])
+    @stories = @filter.result
   end
 
   def update

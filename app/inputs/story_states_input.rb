@@ -1,5 +1,5 @@
 class StoryStatesInput < SimpleForm::Inputs::CollectionSelectInput
   def collection
-    Story.state_machine.states.map(&:name)
+    Story.all_states
   end
 end

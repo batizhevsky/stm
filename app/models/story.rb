@@ -30,4 +30,8 @@ class Story < ActiveRecord::Base
     user.name if user
   end
 
+  def self.all_states
+    Story.state_machine.states.map(&:name)
+  end
+
 end

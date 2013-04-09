@@ -7,6 +7,7 @@ gem 'state_machine'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'ransack'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

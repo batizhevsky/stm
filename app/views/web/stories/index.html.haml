@@ -7,11 +7,12 @@
       %th Comments
   %tbody
     %tr
-      =simple_form_for :story, url: stories_path, method: :get do |f|
+      =search_form_for @filter do |f|
         %th
-        %th=f.input :user, collection: User.all, selected: selected_field(params[:story], :user), include_blank: true, label: false
-        %th=f.input :state, as: :story_states, selected: selected_field(params[:story], :state), label: false, include_blank: true
+        %th=f.collection_select :user_id_eq, User.all, :id, :name, include_blank: true
+        %th=f.select :state_eq, Story.all_states, include_blank: true
         %th=f.submit 'filter', class: 'btn btn-small'
+
     - @stories.each do |story|
       %tr
         %td
