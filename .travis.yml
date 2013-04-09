@@ -5,7 +5,9 @@ rvm:
 env:
   - DB=postgresql
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate test
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
 before_script:
-  - psql -c 'create database stm_test' -U postgres
+  - psql -c 'create database stm_test' -U pestgres
   - cp config/database.yml.sample config/database.yml
