@@ -15,3 +15,19 @@ ru:
         stories:
           event:
             success: Статус изменён
+          create:
+            success: Story успешно создана
+            error: Не удалось создать story
+        comments:
+          create:
+            success: Коментарий успешно добален
+            error: Не удалось добавить коментарий
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: Пароли должны совпадать
+            name:
+              taken: Имя уже занято
