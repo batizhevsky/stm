@@ -32,7 +32,6 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
     chattyproc (1.0.0)
-    coderay (1.0.9)
     colorize (0.5.8)
     commonjs (0.2.6)
     coveralls (0.5.6)
@@ -49,14 +48,6 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
-    guard (1.6.2)
-      listen (>= 0.6.0)
-      lumberjack (>= 1.0.2)
-      pry (>= 0.9.10)
-      terminal-table (>= 1.4.3)
-      thor (>= 0.14.6)
-    guard-minitest (0.5.0)
-      guard (>= 0.4)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -77,13 +68,10 @@ GEM
       actionpack (>= 3.1)
       less (~> 2.2.0)
     libv8 (3.11.8.13)
-    listen (0.7.3)
-    lumberjack (1.0.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.1)
     mime-types (1.21)
     minitest (4.3.3)
     multi_json (1.6.1)
@@ -91,10 +79,6 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
-    pry (0.9.12)
-      coderay (~> 1.0.5)
-      method_source (~> 0.8)
-      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -122,7 +106,6 @@ GEM
       actionpack (~> 3.0)
       activerecord (~> 3.0)
       polyamorous (~> 0.5.0)
-    rb-fsevent (0.9.3)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.2)
@@ -140,8 +123,6 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
-    slop (3.4.3)
-    spork (0.9.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -153,7 +134,6 @@ GEM
       minitest (~> 4.3.0)
       term-ansicolor (~> 1.0.7)
     term-ansicolor (1.0.7)
-    terminal-table (1.4.5)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -178,17 +158,14 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coveralls
   factory_girl_rails (~> 4.0)
-  guard-minitest
   haml-rails
   jquery-rails
   less-rails
   pg
   rails (= 3.2.12)
   ransack
-  rb-fsevent
   sass-rails (~> 3.2.3)
   simple_form
-  spork
   state_machine
   tconsole
   therubyracer

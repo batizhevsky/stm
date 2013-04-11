@@ -18,10 +18,10 @@ class Web::StoriesController < Web::ApplicationController
   def update
     @story = StoryType.find params[:id]
     if @story.update_attributes params[:story]
-      flash[:notice] = "Story successfull updated"
+      flash_success
       redirect_to story_url(@story.id)
     else
-      flash[:error] = "Can't update story"
+      flash_error
       render :show
     end
   end
@@ -29,9 +29,11 @@ class Web::StoriesController < Web::ApplicationController
   def create
     @story = StoryType.new(params[:story])
     if @story.save
-      redirect_to story_url(@story.id), notice: "Story successfully created"
+      flash_success
+      redirect_to story_url(@story.id)
     else
-      render :new, error: "Story not created"
+      flash_error
+      render :new
     end
   end
 

@@ -1,4 +1,4 @@
-%h1 подробнее
+%h3 подробнее
 %dl.dl-horizontal
   %dt номер
   %dd=@story.id
@@ -8,11 +8,10 @@
   %dd=story_assigned
   %dt статус
   %dd=render partial: 'story_state', locals: {story: @story}
-=link_to "edit story", edit_story_path
+=link_to "add comment", new_story_comment_path(story_id: @story), class: "btn btn-large btn-primary disabled"
+=link_to "edit story", edit_story_path, class: "btn btn-large disabled"
 %p
-=link_to "add comment", new_story_comment_path(story_id: @story)
-%p
-%h3 Comments:
+%h4 Comments:
 %dl.dl-horizontal
   =render partial: "web/comments/comment", collection: @comments
 

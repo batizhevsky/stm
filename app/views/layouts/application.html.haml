@@ -4,25 +4,23 @@
     %title SimpleTaskManager</title>
     = stylesheet_link_tag    "application", :media => "all" 
     = javascript_include_tag "application"
+    = tag 'meta', { content: "width=device-width, initial-scale=1.0", name: "viewport" }, true
     = csrf_meta_tags 
   %body
-    %header.navbar
-      .navbar-inner
-        =link_to "Simple Task Manager", root_path, class: "brand"
-        %ul.nav
-          %li 
-            =link_to 'test2', '#'
-          %li
-            =link_to 'test', '#'
-        .pull-right
-          -if signed_in?
-            =link_to current_user.name, user_path(current_user)
-            =link_to 'Выйти', session_path, method: :delete
-          -else
-            =link_to "Sign in", new_session_path
-          
+    .navbar
+      .container
+        %h3=link_to "Simple Task Manager", root_path, class: "brand"
+        .nav-collapse.collapse.pull-right
+          %ul.nav
+            -if signed_in?
+              %li=link_to current_user.name, user_path(current_user)
+              %li=link_to 'Выйти', session_path, method: :delete
+            -else
+              %li= link_to "Sign up", new_user_path
+              %li=link_to "Sign in", new_session_path
     .container
       = flash_block
+      = render 'layouts/tabs'
       = yield 
 -if Rails.env.development?
   %pre.prettyprint
