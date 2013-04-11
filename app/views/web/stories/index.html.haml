@@ -1,10 +1,11 @@
 %table.table.table-hover
   %thead
     %tr
-      %th Story
+      %th= sort_link @filter, :body, 'Story'
       %th Assigned
       %th Action
       %th Comments
+      %th= sort_link @filter, :created_at, 'Created'
   %tbody
     %tr
       =search_form_for @filter do |f|
@@ -12,6 +13,7 @@
         %th=f.collection_select :user_id_eq, User.all, :id, :name, include_blank: true
         %th=f.select :state_eq, Story.all_states, include_blank: true
         %th=f.submit 'filter', class: 'btn btn-small'
+        %th
 
     - @stories.each do |story|
       %tr
@@ -26,3 +28,4 @@
             =story.state
         %td
           =story.comments.count
+        %td=story.created_at

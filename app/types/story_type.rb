@@ -1,6 +1,5 @@
 class StoryType < Story
   include BaseType
 
-   attr_accessible :body, :user_id
-   validate :body, presence: true
+   attr_accessible :user_id
 end

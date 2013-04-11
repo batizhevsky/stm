@@ -3,6 +3,8 @@ class Story < ActiveRecord::Base
   belongs_to :user
   has_many :comments, class_name: "StoryComment"
 
+  validates :body, presence: true
+
   state_machine initial: :new do
 
     event :start do

@@ -2,12 +2,12 @@ class Web::StoriesController < Web::ApplicationController
   before_filter :auth!, except: [:show, :index]
 
   def show
-    @story = Story.find_by_id(params[:id])
+    @story = Story.find(params[:id])
     @comments = @story.comments
   end
 
   def edit
-    @story = Story.find_by_id(params[:id])
+    @story = Story.find(params[:id])
   end
 
   def index
@@ -43,7 +43,7 @@ class Web::StoriesController < Web::ApplicationController
   end
 
   def event
-    @story = Story.find params[:id]
+    @story = Story.find params[:story_id]
     @story.fire_events(params[:event]) ? flash_success : flash_error
     redirect_to request.referer || story_url(@story)
   end

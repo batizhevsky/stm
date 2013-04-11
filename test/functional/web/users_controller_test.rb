@@ -6,7 +6,6 @@ class Web::UsersControllerTest < ActionController::TestCase
     @user = create :user_type
     @user_attr = attributes_for :user_type
 
-    sign_in @user
   end
 
   test 'new user' do
@@ -15,13 +14,16 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'create user' do
+  test 'create user and signed in' do
     post :create, user: @user_attr
 
+    assert signed_in?
     assert_response :redirect
   end
 
   test 'update user' do
+    sign_in @user
+
     put :update, id: @user, user: {name: @user_attr[:name]}
 
     assert User.exists?(name: @user_attr[:name])
@@ -35,6 +37,8 @@ class Web::UsersControllerTest < ActionController::TestCase
    end
 
   test 'delete user' do
+    sign_in @user
+
     post :destroy, id: @user
 
     assert !User.active.exists?(@user)

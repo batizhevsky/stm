@@ -2,7 +2,7 @@
   = f.error_notification
   = f.input :body, input_html: { cols: 80, rows: 3 }, label: "Story"
   = f.association :user, label: "Assigned with"
-  -unless @story.new_record?
+  -if @story.persisted?
     .control-group
       = f.label "status"
       .controls= render partial: 'story_state', locals: {story: @story}

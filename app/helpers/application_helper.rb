@@ -35,7 +35,7 @@ module ApplicationHelper
 
   def add_to_tabs path
     init_tabs
-    @tabs << path unless @tabs.index(path)
+    @tabs |= [path]
   end
 
   def set_active_tab path

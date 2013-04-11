@@ -12,6 +12,7 @@ class Web::UsersController < Web::ApplicationController
   def create
     @user = UserType.new(params[:user])
     if @user.save
+      sign_in @user
       flash_success
       redirect_to user_path(@user)
     else
