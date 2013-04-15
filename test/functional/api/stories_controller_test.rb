@@ -17,10 +17,4 @@ class Api::StoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'search by body' do
-    get :search, format: :json, q: { body_eq: @story.body }
-
-    assert_response :success
-  end
-
 end

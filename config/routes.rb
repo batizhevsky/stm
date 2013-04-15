@@ -10,9 +10,8 @@ SimpleTaskManager::Application.routes.draw do
   end
 
   namespace :api do
-    resources :stories, only: [:index, :show] do
-      get 'search', on: :collection
-    end
+    resources :stories, only: [:index, :show]
   end
+
   root :to => 'web::stories#index'
 end
