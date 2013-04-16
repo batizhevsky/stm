@@ -4,9 +4,7 @@ class Api::StoriesControllerTest < ActionController::TestCase
   def setup
     @story = create :story
 
-    user = attributes_for :user_type
-
-    basic_auth(user)
+    @user = attributes_for :user_type
   end
 
   test 'get all stories' do
@@ -22,6 +20,7 @@ class Api::StoriesControllerTest < ActionController::TestCase
   end
 
   test 'create story' do
+    basic_auth(@user)
     story_attr = attributes_for :story
 
     post :create, format: :json, story: story_attr
@@ -30,6 +29,7 @@ class Api::StoriesControllerTest < ActionController::TestCase
   end
 
   test 'update story' do
+    basic_auth(@user)
     story_attr = attributes_for :story
 
     put :update, format: :json, id: @story, story: story_attr
@@ -38,9 +38,32 @@ class Api::StoriesControllerTest < ActionController::TestCase
   end
 
   test 'delete story' do
+    basic_auth(@user)
     delete :destroy, format: :json, id: @story
 
     assert_response :success
+  end
+
+  test 'not auth user cant create story' do
+    story_attr = attributes_for :story
+
+    post :create, format: :json, story: story_attr
+
+    assert_response :unauthorized
+  end
+
+  test 'not auth user cant update story' do
+    story_attr = attributes_for :story
+
+    put :update, format: :json, id: @story, story: story_attr
+
+    assert_response :unauthorized
+  end
+
+  test 'not auth user cant delete story' do
+    delete :destroy, format: :json, id: @story
+
+    assert_response :unauthorized
   end
 
   private
