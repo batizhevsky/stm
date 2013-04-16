@@ -1,18 +1,18 @@
 class Web::SessionsController < Web::ApplicationController
 
   def new
-   @session = UserSigninType.new
+   @user = UserSigninType.new
   end
 
   def create
-    @user = UserSigninType.try_sign(params[:user])
+    @user = UserSigninType.new(params[:user])
 
-    if @user
+    if @user.try_sign
       sign_in @user
+
       flash_success
       redirect_to root_path
     else
-      @session = UserSigninType.new(params[:user])
       flash_error
       render :new
     end
