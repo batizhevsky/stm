@@ -10,7 +10,7 @@ SimpleTaskManager::Application.routes.draw do
   end
 
   namespace :api do
-    resources :stories, only: [:index, :show]
+    resources :stories, only: [:index, :show, :create, :update, :destroy]
   end
 
   root :to => 'web::stories#index'

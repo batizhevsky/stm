@@ -4,7 +4,7 @@ module AuthHelper
   end
 
   def signed_in?
-    current_user || false
+    current_user.present?
   end
 
   def sign_out
@@ -17,6 +17,13 @@ module AuthHelper
 
   def auth!
     redirect_to new_session_url unless signed_in?
+  end
+
+  def api_auth!
+    authenticate_or_request_with_http_basic do |user, password|
+      user = UserType.find_by_name(user).try(:authenticate, password)
+      sign_in user
+    end
   end
 
 end

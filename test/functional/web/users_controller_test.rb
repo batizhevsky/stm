@@ -39,7 +39,7 @@ class Web::UsersControllerTest < ActionController::TestCase
   test 'delete user' do
     sign_in @user
 
-    post :destroy, id: @user
+    delete :destroy, id: @user
 
     assert !User.active.exists?(@user)
     assert_response :redirect
@@ -57,7 +57,7 @@ class Web::UsersControllerTest < ActionController::TestCase
   test "on delete user if not auth redirect" do
     sign_out
 
-    post :destroy, id: @user
+    delete :destroy, id: @user
 
     assert User.active.exists?(@user)
     assert_redirected_to new_session_url
