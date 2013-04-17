@@ -3,7 +3,7 @@ class Api::StoriesController < Api::ApplicationController
 
   def index
     @filter = Story.ransack(params[:q])
-    @stories = @filter.result
+    @stories = @filter.result.page(params[:page]).per(params[:per])
   end
 
   def show
@@ -12,11 +12,12 @@ class Api::StoriesController < Api::ApplicationController
 
   def create
     @story = StoryType.new(params[:story])
+    @story.save
 
     if @story.save
       render :show, status: :created
     else
-      render json: @story.errors, status: :not_acceptable
+      render :error, status: :not_acceptable
     end
   end
 
@@ -27,14 +28,15 @@ class Api::StoriesController < Api::ApplicationController
     if @story.save
       render :show
     else
-      render json: @story.errors, status: :not_acceptable
+      render :error, status: :not_acceptable
     end
   end
 
   def destroy
     story = Story.find(params[:id])
     story.destroy
-    render nothing: true
+
+    render nothing: true, status: :no_content
   end
 
 end
