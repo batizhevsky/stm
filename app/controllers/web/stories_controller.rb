@@ -19,10 +19,10 @@ class Web::StoriesController < Web::ApplicationController
     @story = StoryType.find params[:id]
     if @story.update_attributes params[:story]
       flash_success
-      redirect_to story_url(@story.id)
+      redirect_to request.referer || story_url(@story.id)
     else
       flash_error
-      render :show
+      render :edit
     end
   end
 
@@ -40,11 +40,5 @@ class Web::StoriesController < Web::ApplicationController
   def new
     @story = StoryType.new
     @users = User.all
-  end
-
-  def event
-    @story = Story.find params[:story_id]
-    @story.fire_events(params[:event]) ? flash_success : flash_error
-    redirect_to request.referer || story_url(@story)
   end
 end

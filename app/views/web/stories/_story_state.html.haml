@@ -1,7 +1,7 @@
 -if signed_in? and story.state_events.any?
   -story.state_events.each do |ev|
-    = form_for ev, as: :post, url: story_event_path(story, params) do |f|
-      = hidden_field_tag :event, ev
+    = simple_form_for story, url: story_path(story, params) do |f|
+      = f.hidden_field :state_event, value: ev
       = f.submit ev, class: "btn #{ev} #{bstrp_btn(ev)}"
 -else
   =story.human_state_name

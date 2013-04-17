@@ -53,7 +53,7 @@ class Web::StoriesControllerTest < ActionController::TestCase
 
   test "update state" do
     next_event = @story.state_paths.events.first
-    post :event, story_id: @story, event: next_event
+    put :update, id: @story, story: { state_event: next_event }
 
     assert_response :redirect
   end

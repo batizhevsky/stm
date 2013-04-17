@@ -22,7 +22,7 @@ class Api::StoriesController < Api::ApplicationController
   end
 
   def update
-    @story = Story.find(params[:id])
+    @story = StoryType.find(params[:id])
     @story.assign_attributes(params[:story])
 
     if @story.save

@@ -3,12 +3,12 @@ class Web::CommentsController < Web::ApplicationController
 
   def new
     story = Story.find(params[:story_id])
-    @comment = story.comments.new
+    @comment = story.comments.build
   end
 
   def create
     story = Story.find(params[:story_id])
-    @comment = story.comments.build(comment: params[:story_comment][:comment], user: current_user)
+    @comment = story.comments.build(params[:story_comment].merge(user: current_user))
     if @comment.save
       flash_success
       redirect_to story_url(story)

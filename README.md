@@ -2,14 +2,17 @@
 Develop:
   [![Build Status](https://travis-ci.org/leonko/stm.png?branch=develop)](https://travis-ci.org/leonko/stm)
   [![Coverage Status](https://coveralls.io/repos/leonko/stm/badge.png?branch=develop)](https://coveralls.io/r/leonko/stm)
-Master
+
+Master:
   [![Build Status](https://travis-ci.org/leonko/stm.png?branch=master)](https://travis-ci.org/leonko/stm)
   [![Coverage Status](https://coveralls.io/repos/leonko/stm/badge.png?branch=master)](https://coveralls.io/r/leonko/stm)
 
+###Example
 [simple-task-manager.herokuapp.com](http://simple-task-manager.herokuapp.com)
 
 ### api:
 GET http://localhost:3000/api/stories.json?q[state_eq]=accepted&per=2&page=2
+
 [filter sintax](https://github.com/ernie/ransack/wiki/Basic-Searching)
 
 <pre><code>
