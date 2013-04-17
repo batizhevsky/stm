@@ -1,4 +1,0 @@
-{<img src="https://travis-ci.org/leonko/stm.png" />}[https://travis-ci.org/leonko/stm]
-{<img src="https://coveralls.io/repos/leonko/stm/badge.png" />}[https://coveralls.io/r/leonko/stm]
-
-{simple-task-manager.herokuapp.com}[http://simple-task-manager.herokuapp.com]
