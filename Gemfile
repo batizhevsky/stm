@@ -9,6 +9,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'ransack'
 gem 'kaminari'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
