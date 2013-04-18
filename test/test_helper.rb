@@ -16,10 +16,3 @@ class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
   # Add more helper methods to be used by all tests here...
 end
-class ActionDispatch::Routing::RouteSet
-  def url_for_with_default_url_options(options)
-    url_for_without_default_url_options(options.merge(locale: I18n.default_locale))
-  end
-
-  alias_method_chain :url_for, :default_url_options
-end
