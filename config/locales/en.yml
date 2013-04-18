@@ -50,3 +50,6 @@ en:
       story:
         id: Story ID
         body: Story content
+  flash:
+    error:
+      no_locale: Translation not found

@@ -91,3 +91,6 @@ ru:
             accept: Принять
             reject: Отклонить
             restart: Заново
+  flash:
+    error:
+      no_locale: Перевод не найден
