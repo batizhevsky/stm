@@ -1,5 +1,52 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      signout: Sign Out
+      signup: SignUp
+      signin: SignIn
+  web:
+    stories:
+      new:
+        new_story: Create user story
+      edit:
+        edit_story: Edit user story
+      show:
+        show: User story
+        edit: Edit story
+        add_comment: Add comment
+    comments:
+      new:
+        add: Create comment to story \#%{story}
+    sessions:
+      new:
+        create: Sign in
+        title: Please sign in
+  flash:
+    controllers:
+      web:
+        users:
+          create:
+            error: Can't create user
+            success: User success created
+        sessions:
+          create:
+            success: Welcome
+            error: Can't sign in
+          destory:
+            success: Success signed out
+        stories:
+          create:
+            success: Story created
+            error: Can't create story
+          update:
+            success: Story updated
+            error: Can't update story
+        comments:
+          create:
+            success: Comment added
+            error: Can't add comment
+  activerecord:
+    attributes:
+      story:
+        id: Story ID
+        body: Story content
