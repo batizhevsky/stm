@@ -2,6 +2,6 @@
   -story.state_events.each do |ev|
     = simple_form_for story, url: story_path(story, params) do |f|
       = f.hidden_field :state_event, value: ev
-      = f.submit ev, class: "btn #{ev} #{bstrp_btn(ev)}"
+      = f.submit Story.human_state_event_name(ev), class: "btn #{ev} #{bstrp_btn(ev)}"
 -else
   =story.human_state_name

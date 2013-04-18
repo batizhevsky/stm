@@ -1,11 +1,11 @@
 %table.table.table-hover
   %thead
     %tr
-      %th= sort_link @filter, :body, 'Story'
-      %th Assigned
-      %th Action
-      %th Comments
-      %th= sort_link @filter, :created_at, 'Created'
+      %th= sort_link @filter, :body, Story.human_attribute_name("body")
+      %th=Story.human_attribute_name("user")
+      %th=Story.human_attribute_name("state")
+      %th=Story.human_attribute_name("comments")
+      %th= sort_link @filter, :created_at, Story.human_attribute_name("created_at")
   %tbody
     %tr
       =search_form_for @filter do |f|
@@ -25,7 +25,7 @@
           -if signed_in?
             =render partial: 'story_state', locals: {story: story}
           -else
-            =story.state
+            =story.human_state_name
         %td
           =story.comments.count
         %td=story.created_at
