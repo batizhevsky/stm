@@ -3,7 +3,9 @@ SimpleTaskManager::Application.routes.draw do
     resources :stories, only: [:index, :show, :create, :update, :destroy], format: true
   end
 
-  scope ':locale', constraints: { locale: /[a-zA-Z][a-zA-Z]/} do
+  root to: 'web/welcome#index'
+
+  scope '(:locale)', constraints: { locale: /[a-zA-Z][a-zA-Z]/} do
     scope module: "web" do
       resources :stories, only: [:show, :edit, :index, :update, :create, :new] do
         resources :comments, only: [:create, :destroy, :new]
@@ -16,5 +18,4 @@ SimpleTaskManager::Application.routes.draw do
   end
 
 
-  root to: 'web/welcome#index'
 end
