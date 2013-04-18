@@ -1,0 +1,8 @@
+%html
+  %head
+    %title Choose locale | SimpleTaskManager
+    = stylesheet_link_tag    "application", :media => "all"
+  %body.container
+    %ul
+      %li=link_to 'ru', stories_path(locale: :ru)
+      %li=link_to 'en', stories_path(locale: :en)

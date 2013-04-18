@@ -1,10 +1,10 @@
 = simple_form_for @story, html: { class: 'form-horizontal' } do |f|
   = f.error_notification
-  = f.input :body, input_html: { cols: 80, rows: 3 }, label: "Story"
-  = f.association :user, label: "Assigned with"
+  = f.input :body, input_html: { cols: 80, rows: 3 }
+  = f.association :user
   -if @story.persisted?
     .control-group
-      = f.label "status"
+      = f.label Story.human_attribute_name(:state)
       .controls= render partial: 'story_state', locals: {story: @story}
   .form-actions
     = f.button :submit, class: "btn-primary"
