@@ -25,7 +25,7 @@ module ApplicationHelper
   def activate_current_tab
     if request
       current_path = url_for(request.path)
-      if current_path == root_path
+      if [root_path, root_with_locale_path].include?(current_path)
         @active = 0
       else
         add_and_active current_path

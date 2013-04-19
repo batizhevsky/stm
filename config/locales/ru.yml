@@ -1,4 +1,29 @@
 ru:
+  attributes:
+    created_at: Дата создания
+    updated_at: Дата обновления
+  layouts:
+    application:
+      signout: Выйти
+      signup: Зарегистрироваться
+      signin: Войти
+  web:
+    stories:
+      new:
+        new_story: Создать пользовательскую историю
+      edit:
+        edit_story: Редактировать пользовательскую историю
+      show:
+        show: Просмотр истории
+        edit: Редактировать
+        add_comment: Добавить коментарий
+    comments:
+      new:
+        add: Создание комментария к истории %{story}
+    sessions:
+      new:
+        create: Воити
+        title: Авторизация пользователя
   flash:
     controllers:
       web:
@@ -18,11 +43,31 @@ ru:
           create:
             success: Story успешно создана
             error: Не удалось создать story
+          update:
+            success: Story успешно обновлена
+            error: Не удалось обновить story
         comments:
           create:
             success: Коментарий успешно добален
             error: Не удалось добавить коментарий
   activerecord:
+    models:
+      story: пользовательскую историю
+      story_comment: комментарий
+      user: пользователя
+    attributes:
+      story:
+        id: Номер истории
+        body: Содержимое
+        user: Назначена
+        state: Состояние
+        comments: Коментарии
+      story_comment:
+        comment: Коментарий
+      user:
+        name: Имя
+        password: Пароль
+        password_confirmation: Подтверждение пароля
     errors:
       models:
         user:
@@ -31,3 +76,21 @@ ru:
               confirmation: Пароли должны совпадать
             name:
               taken: Имя уже занято
+    state_machines:
+      story:
+        state:
+          states:
+            new: Новая
+            started: Начатая
+            finished: Законченная
+            accepted: Принятая
+            rejected: Отклоненная
+          events:
+            start: Начать
+            finish: Закончить
+            accept: Принять
+            reject: Отклонить
+            restart: Заново
+  flash:
+    error:
+      no_locale: Перевод не найден

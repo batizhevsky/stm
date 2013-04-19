@@ -8,6 +8,9 @@ gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'ransack'
+gem 'kaminari'
+gem 'unicorn'
+gem 'russian'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

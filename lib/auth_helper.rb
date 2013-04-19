@@ -21,7 +21,8 @@ module AuthHelper
 
   def api_auth!
     authenticate_or_request_with_http_basic do |user, password|
-      user = UserType.find_by_name(user).try(:authenticate, password)
+      user = UserType.active.find_by_name(user)
+      user.try(:authenticate, password)
       sign_in user
     end
   end

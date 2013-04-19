@@ -11,7 +11,7 @@ class Web::SessionsController < Web::ApplicationController
       sign_in @user
 
       flash_success
-      redirect_to root_path
+      redirect_to root_with_locale_path
     else
       flash_error
       render :new
@@ -22,6 +22,6 @@ class Web::SessionsController < Web::ApplicationController
     sign_out
 
     flash_success
-    redirect_to root_url
+    redirect_to root_with_locale_url
   end
 end
